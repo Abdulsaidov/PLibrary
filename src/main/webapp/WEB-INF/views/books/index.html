@@ -3,15 +3,29 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!--    <link rel="stylesheet" href="resources/main.css">-->
     <title>Список книг</title>
 </head>
 <body>
-<p>Все книги нашей библиотеки:</p>
+ <div class="container">
+<!--<p>Все книги нашей библиотеки:</p>-->
+     
+<!--     <img src="https://images.unsplash.com/photo-1648737965782-94fb1b30f768?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"/>-->
+<h1>Все книги нашей библиотеки:</h1>
+
 <br/>
-<div th:each="book : ${books}">
-    <a th:href="@{/books/{id}(id=${book.id})}"
-       th:text="${book.title + ', автор: '+  book.author + ', год издания: ' + book.year}"></a>
-</div>
+<!--<div th:each="book : ${books}">-->
+<ol class="book-list">
+    <li th:each="book : ${books}">
+        <a th:href="@{/books/{id}(id=${book.id})}"
+           th:text="${book.title + ', автор: '+  book.author + ', год издания: ' + book.year}"></a>
+    </li>
+</ol>
+<!--</div>-->
+
 
 <a href="/books/new"
 >Добавить новую книгу</a>
@@ -19,7 +33,67 @@
 <br/>
 <br/>
 <hr/>
-<a href="/people">  Наши читатели </a>
+<a class="link" href="/people" target="_blank"> Наши читатели </a>
+
+ </div>
+
+<style>
+
+    .container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+    }
+
+    h1 {
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+    .book-list {
+        margin-top: 20px;
+    }
+
+    .book-list li {
+        margin-top: 6px;
+    }
+
+    .book-list a:hover {
+        transition: 0.3s;
+        color: gray;
+    }
+
+    a {
+        text-decoration: unset;
+        color: black;
+        margin-left: 20px;
+    }
+
+    .link {
+        color: red;
+        transition: 0.3s;
+    }
+
+    .link:hover {
+        color: gray;
+        transition: .3s;
+    }
+
+    /*.box {*/
+    /*    width: 100px;*/
+    /*    height: 100px;*/
+    /*    background: gray;*/
+    /*    margin: 50px;*/
+    /*    padding: 50px;*/
+    /*}*/
+
+
+</style>
+
 
 </body>
 </html>

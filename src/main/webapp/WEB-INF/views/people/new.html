@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Новый читатель</title>
 </head>
 <body>
+<div class="container">
 <form th:method="POST" th:action="@{/people}" th:object="${person}">
     <label for="fullName"> Введите имя </label>
     <input type="text" th:field="*{fullName}" id="fullName"/>
@@ -19,6 +23,34 @@
     <br/>
     <input type="submit" value="Создать!"/>
 </form>
+<style>
 
+    .container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+    }
+
+    h1 {
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+    .book-list li {
+        margin-top: 6px;
+    }
+
+    a {
+        text-decoration: unset;
+        color: black;
+        margin-left: 20px;
+    }
+
+</style>
+</div>
 </body>
 </html>

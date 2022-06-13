@@ -1,6 +1,8 @@
 package com.artur.library.model;
 
 
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -15,6 +17,7 @@ public class Book {
 
     private String author;
     @Min(message = "Книга не должна быть издана раньше 1500", value = 1500)
+
     private int year;
 
 

@@ -3,9 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Книга</title>
 </head>
 <body>
+<div class="container">
 <p th:text="${book.title +', '+book.author +', '+book.year}"> VALUE </p>
 <div th:if="${owner}">
     <p>Эта книга сейчас у:</p>
@@ -39,7 +43,32 @@
 <form th:method="DELETE" th:action="@{/books/{id}(id=${book.getId()})}">
     <input type="submit" value="Удалить"/>
 </form>
+<style>
 
+    .container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+    }
+
+    h1 {
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+
+    a {
+        text-decoration: unset;
+        color: black;
+        margin-left: 20px;
+    }
+
+</style>
+</div>
 </body>
 </html>
 

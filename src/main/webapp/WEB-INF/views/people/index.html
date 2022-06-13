@@ -2,19 +2,74 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <title>Список читателей библиотеки</title>
 </head>
 <body>
-<p> Наши читатели </p>
-<div th:each="person : ${people}">
-    <a th:href="@{/people/{id}(id=${person.id})}"
-       th:text="${person.fullName + ', ' + person.yearOfBirth}">user</a>
-</div>
+<div class="container">
+<h1> Наши читатели </h1>
+<ol class="people-list" >
+    <li th:each="person : ${people}">
+        <a th:href="@{/people/{id}(id=${person.id})}"
+           th:text="${person.fullName + ', ' + person.yearOfBirth}">user</a>
+    </li>
+</ol>
 <br/>
 <a href="/people/new"> Добавить нового читателя</a>
 <br/>
 <hr/>
-<a href="/books"> Книги нашей библиотеки </a>
+<a class="link" href="/books" target="_blank"> Книги нашей библиотеки </a>
+
+    <style>
+
+    .container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+    }
+
+    h1 {
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+    .people-list {
+        margin-top: 20px;
+    }
+
+    .people-list li {
+        margin-top: 6px;
+    }
+
+    .people-list a:hover {
+        transition: 0.3s;
+        color: gray;
+    }
+
+    a {
+        text-decoration: unset;
+        color: black;
+        margin-left: 20px;
+    }
+
+    .link {
+        color: red;
+        transition: 0.3s;
+    }
+
+    .link:hover {
+        color: gray;
+        transition: .3s;
+    }
+
+    </style>
+</div>
 </body>
 </html>

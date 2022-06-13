@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
+<div class="container">
 <p th:text="${person.fullName + ', ' + person.yearOfBirth}"></p>
 
 <div th:if="${ownBooks.isEmpty()}">
@@ -27,6 +31,37 @@
 <form th:method="DELETE" th:action="@{/people/{id}(id=${person.id})}">
     <input type="submit" value="Удалить читателя">
 </form>
+<style>
+
+    .container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+    }
+
+    h1 {
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+    .book-list a:hover {
+        transition: 0.3s;
+        color: gray;
+    }
+
+    a {
+        text-decoration: unset;
+        color: black;
+        margin-left: 20px;
+    }
+
+
+</style>
+</div>
 
 <!--<a th:ref="@{/people/{id}(id=${person.id})}"></a> -->
 </body>

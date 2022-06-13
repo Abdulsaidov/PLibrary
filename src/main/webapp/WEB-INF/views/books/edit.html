@@ -2,9 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Редактировать книгу</title>
 </head>
 <body>
+<div class="container">
 <p>Отредактировать книгу:</p>
 <form th:method="PATCH" th:action="@{/books/{id}(id=${book.id})}" th:object="${book}">
     <label for="title"> Отредактируйте название книги: </label>
@@ -24,6 +28,30 @@
     <br/>
     <input type="submit" value="Отредактировать!">
 </form>
+<style>
 
+    .container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+    }
+
+    h1 {
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+    a {
+        text-decoration: unset;
+        color: black;
+        margin-left: 20px;
+    }
+
+</style>
+</div>
 </body>
 </html>
