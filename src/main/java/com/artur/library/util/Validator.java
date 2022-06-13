@@ -1,16 +1,16 @@
 package com.artur.library.util;
 
-import com.artur.library.dao.PersonDAO;
 import com.artur.library.model.Person;
+import com.artur.library.service.PeopleService;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 
 @Component
 public class Validator implements org.springframework.validation.Validator {
-    private final PersonDAO personDAO;
+    private final PeopleService peopleService;
 
-    public Validator(PersonDAO personDAO) {
-        this.personDAO = personDAO;
+    public Validator(PeopleService peopleService) {
+        this.peopleService = peopleService;
     }
 
     @Override
@@ -22,7 +22,7 @@ public class Validator implements org.springframework.validation.Validator {
     public void validate(Object target, Errors errors) {
     Person person = (Person) target;
 
-    if(personDAO.getPersonByFullName(person.getFullName()).isPresent())
+    if(peopleService.getPersonByFullName(person.getFullName()).isPresent())
         errors.rejectValue("fullName","","Already exist");
     }
 }

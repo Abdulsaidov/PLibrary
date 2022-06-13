@@ -20,7 +20,13 @@
 <hr/>
 <b>Книги:</b>
 <table th:each="book : ${ownBooks}">
-    <tr th:text="${book.title + ', '+ book.author + ', '+ book.year}"/>
+    <tr>
+        <td>
+            <span th:text="${book.title + ', '+ book.author + ', '+ book.year}"
+                  th:style="${book.isExpired()}? 'color: red' : 'color: black'">book</span>
+
+        </td>
+    </tr>
 </table>
 <hr/>
 

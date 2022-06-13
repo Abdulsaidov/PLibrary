@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Index</title>
+</head>
+<body>
+<div class="container">
+    <form th:method="POST" th:action="@{/books/search}">
+        <label for="query">Введите поисковой запрос: </label>
+        <input type="text" id="query" name="query"/>
+        <br/>
+        <input type="submit" value="Искать!"/>
+    </form>
+
+    <div th:if="${books}">
+        <div th:if="${books.isEmpty()}">
+            <span>Книг не найдено</span>
+        </div>
+
+        <div th:each="book : ${books}">
+            <p th:text="${book.getTitle() + ', ' + book.getAuthor() + ', ' + book.getYear()}">book</p>
+
+            <div th:if="${book.getOwner() != null}">
+                <span>Книга сейчас у: </span> <span th:text="${book.getOwner().getFullName()}">Person Name</span>
+            </div>
+
+            <div th:if="${book.getOwner() == null}">
+                <span>Книга свободна</span>
+            </div>
+
+            <hr/>
+        </div>
+    </div>
+</div>
+</body>
+<style>
+
+    .container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+    }
+
+    h1 {
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+
+    a {
+        text-decoration: unset;
+        color: black;
+        margin-left: 20px;
+    }
+
+</style>
+</html>

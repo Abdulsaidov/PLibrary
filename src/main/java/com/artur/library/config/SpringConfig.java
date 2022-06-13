@@ -29,7 +29,7 @@ import java.util.Properties;
 @ComponentScan("com.artur.library")
 @EnableWebMvc
 @EnableTransactionManagement
-@EnableJpaRepositories("com.artur.library.repositories")
+@EnableJpaRepositories("com.artur.library.repository")
 @PropertySource("classpath:hibernate.properties")
 public class SpringConfig implements WebMvcConfigurer {
 
